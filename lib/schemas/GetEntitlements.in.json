@@ -1,0 +1,88 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "The GetEntitlementsRequest contains parameters for the GetEntitlements operation.",
+            "properties": {
+                "Filter": {
+                    "description": "Filter is used to return entitlements for a specific customer or for a specific dimension. Filters are described as keys mapped to a lists of values. Filtered requests are <i>unioned</i> for each value in the value list, and then <i>intersected</i> for each filter key.",
+                    "items": {
+                        "properties": {
+                            "key": {
+                                "enum": [
+                                    "CUSTOMER_IDENTIFIER",
+                                    "DIMENSION"
+                                ],
+                                "type": "string"
+                            },
+                            "value": {
+                                "items": {
+                                    "type": "string"
+                                },
+                                "minItems": 1,
+                                "type": "array"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "MaxResults": {
+                    "description": "The maximum number of items to retrieve from the GetEntitlements operation. For pagination, use the NextToken field in subsequent calls to GetEntitlements.",
+                    "type": "integer"
+                },
+                "NextToken": {
+                    "description": "For paginated calls to GetEntitlements, pass the NextToken from the previous GetEntitlementsResult.",
+                    "pattern": "\\S+",
+                    "type": "string"
+                },
+                "ProductCode": {
+                    "description": "Product code is used to uniquely identify a product in AWS Marketplace. The product code will be provided by AWS Marketplace when the product listing is created.",
+                    "maxLength": 255,
+                    "minLength": 1,
+                    "type": "string"
+                }
+            },
+            "required": [
+                "ProductCode"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

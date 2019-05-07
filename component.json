@@ -1,0 +1,57 @@
+{
+    "title": "AWS Marketplace Entitlement Service",
+    "description": "<fullname>AWS Marketplace Entitlement Service</fullname> <p>This reference provides descriptions of the AWS Marketplace Entitlement Service API.</p> <p>AWS Marketplace Entitlement Service is used to determine the entitlement of a customer to a given product. An entitlement represents capacity in a product owned by the customer. For example, a customer might own some number of users or seats in an SaaS application or some amount of data capacity in a multi-tenant database.</p> <p> <b>Getting Entitlement Records</b> </p> <ul> <li> <p> <i>GetEntitlements</i>- Gets the entitlements for a Marketplace product.</p> </li> </ul>",
+    "docsUrl": "https://aws.amazon.com/marketplace/",
+    "url": "https://api.apis.guru/v2/specs/amazonaws.com/entitlement.marketplace/2017-01-11/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://entitlement.marketplace.amazonaws.com/",
+                    "http://entitlement.marketplace.amazonaws.com/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "hmac": {
+                "label": "Authorization (hmac)",
+                "viewClass": "TextFieldView",
+                "note": "Amazon Signature authorization v4"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "GetEntitlements": {
+            "main": "./lib/actions/GetEntitlements.js",
+            "title": "GetEntitlements retrieves entitlement values for a given product. The results can be filtered based on customer identifier or product dimensions.",
+            "description": "GetEntitlements retrieves entitlement values for a given product. The results can be filtered based on customer identifier or product dimensions.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetEntitlements.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

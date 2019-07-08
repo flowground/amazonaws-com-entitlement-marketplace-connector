@@ -5,7 +5,7 @@
 A generated **flow**ground connector for the AWS Marketplace Entitlement Service API (version 2017-01-11).
 
 Generated from: https://api.apis.guru/v2/specs/amazonaws.com/entitlement.marketplace/2017-01-11/swagger.json<br/>
-Generated at: 2019-05-07T17:35:32+03:00
+Generated at: 2019-07-08T14:12:53+03:00
 
 ## API Description
 
@@ -17,7 +17,8 @@ Supported authorization schemes:
 - API Key
 ## Actions
 
-### GetEntitlements retrieves entitlement values for a given product. The results can be filtered based on customer identifier or product dimensions.
+### GetEntitlements
+> GetEntitlements retrieves entitlement values for a given product. The results can be filtered based on customer identifier or product dimensions.<br/>
 
 #### Input Parameters
 * `Action` - _required_
